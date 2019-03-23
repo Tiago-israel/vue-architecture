@@ -3,26 +3,26 @@ import '../interceptors/http-interceptor';
 
 class HttpClient {
 
-    apiUrl = 'https://swapi.co/api';
+    apiUrl = 'http://localhost:3000';
 
     constructor(resource = '') {
         this.resource = resource;
     }
 
-    get(action = '') {
-        return axios.get(`${this.apiUrl}/${this.resource}/${action}`, this.config());
+    get(action = '', config = this.config()) {
+        return axios.get(`${this.apiUrl}/${this.resource}/${action}`, config);
     }
 
-    post(action = '', body = {}) {
-        return axios.post(`${this.apiUrl}/${this.resource}/${action}`, body, this.config());
+    post(action = '', body = {}, config = this.config()) {
+        return axios.post(`${this.apiUrl}/${this.resource}/${action}`, body, config);
     }
 
-    put(action = '', body = {}) {
-        return axios.put(`${this.apiUrl}/${this.resource}/${action}`, body, this.config());
+    put(action = '', body = {}, config = this.config()) {
+        return axios.put(`${this.apiUrl}/${this.resource}/${action}`, body, config);
     }
 
-    delete(action = '') {
-        return axios.delete(`${this.apiUrl}/${this.resource}/${action}`, body, this.config());
+    delete(action = '', config = this.config()) {
+        return axios.delete(`${this.apiUrl}/${this.resource}/${action}`, body, config);
     }
 
     config() {
